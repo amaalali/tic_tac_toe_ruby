@@ -1,3 +1,7 @@
 source 'https://rubygems.org' do
-  gem 'rspec'
+  ruby '2.3.0'
+  group :test do
+    gem 'rspec'
+    gem 'rake'
+  end
 end
