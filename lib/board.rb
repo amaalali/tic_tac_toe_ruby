@@ -8,6 +8,11 @@ class Board
     @field.dup
   end
 
+  def print
+    printer = Printer.new
+    printer.print(@field)
+  end
+
   def play(symbol, row, column)
     if check_inputs(symbol, row, column) && check_free(row, column)
       @field[row - 1][column - 1] = symbol
