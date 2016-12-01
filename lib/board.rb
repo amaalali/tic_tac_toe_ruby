@@ -18,8 +18,8 @@ class Board
   private
 
   def check_inputs(symbol, row, column)
-    if symbol == nil or !['x', 'o'].include?(symbol)
-      raise ArgumentError.new("Symbol: You must enter an x or o")
+    if symbol == nil or !['X', 'O'].include?(symbol)
+      raise ArgumentError.new("Symbol: You must enter an X or O")
       return false
     end
 
@@ -32,7 +32,6 @@ class Board
       raise ArgumentError.new("Column: You must enter a column in range 1-3")
       return false
     end
-
     return true
   end
 
