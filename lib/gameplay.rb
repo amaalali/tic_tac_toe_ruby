@@ -18,6 +18,6 @@ class Gameplay
   end
 
   def display
-    Printer.print(board)
+    Printer.print(@board)
   end
 end
