@@ -34,15 +34,15 @@ describe Board do
       end
     end
 
-    # context 'valid inputs' do
-    #   it 'playing x in (1,1)' do
-    #     board.play('x',1,1)
-    #     expect(board.view).to eq([[x, nil, nil], [nil, nil, nil], [nil, nil, nil]])
-    #   end
-    #   it 'playing x in (1,1)' do
-    #     board.play('x',1,1)
-    #     expect(board.view).to eq([[x, nil, nil], [nil, nil, nil], [nil, nil, nil]])
-    #   end
-    # end
+    context 'valid inputs' do
+      it 'playing x in (1,1)' do
+        board.play('x',1,1)
+        expect(board.view).to eq([['x', nil, nil], [nil, nil, nil], [nil, nil, nil]])
+      end
+      it 'playing o in (1,1)' do
+        board.play('o',1,1)
+        expect(board.view).to eq([['o', nil, nil], [nil, nil, nil], [nil, nil, nil]])
+      end
+    end
   end
 end
