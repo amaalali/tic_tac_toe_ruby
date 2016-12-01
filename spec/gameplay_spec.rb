@@ -10,4 +10,8 @@ describe Gameplay do
       expect(game.player_2).to eq("player_2")
     end
   end
+
+  it 'current player can be checked' do
+    expect(game.current_player).to eq("player_1")
+  end
 end
