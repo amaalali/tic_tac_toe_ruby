@@ -1,4 +1,5 @@
 # Bank app
+[![Build Status](https://travis-ci.org/amaalali/tic_tac_toe_ruby.svg?branch=master)](https://travis-ci.org/amaalali/tic_tac_toe_ruby)
 
 ## Specification
 
