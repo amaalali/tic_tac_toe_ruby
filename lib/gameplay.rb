@@ -24,7 +24,7 @@ class Gameplay
   def play(row,column)
     @board.move(@current_player.symbol, row, column)
     switch_players
-    return self
+    display
   end
 
   private
