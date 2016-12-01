@@ -15,10 +15,10 @@ describe Gameplay do
     expect(game.current_player).to eq("player_1")
   end
 
-  # describe 'main gameplay' do
-  #   it 'current player can play' do
-  #     # game.play(1,1)
-  #     expect(game.display).to have_called(Print)
-  #   end
-  # end
+  describe '#display' do
+    it 'calls the Print class to print the board' do
+      expect(Printer).to receive(:print)
+      game.display
+    end
+  end
 end
