@@ -14,4 +14,11 @@ describe Gameplay do
   it 'current player can be checked' do
     expect(game.current_player).to eq("player_1")
   end
+
+  # describe 'main gameplay' do
+  #   it 'current player can play' do
+  #     # game.play(1,1)
+  #     expect(game.display).to have_called(Print)
+  #   end
+  # end
 end

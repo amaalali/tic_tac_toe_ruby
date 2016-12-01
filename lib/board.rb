@@ -4,16 +4,11 @@ class Board
     return self
   end
 
-  def view
-    @field.dup
+  def field
+    (@field.each {|x| x.dup}).dup
   end
 
-  def print
-    printer = Printer.new
-    printer.print(@field)
-  end
-
-  def play(symbol, row, column)
+  def move(symbol, row, column)
     if check_inputs(symbol, row, column) && check_free(row, column)
       @field[row - 1][column - 1] = symbol
     end
