@@ -1,9 +1,8 @@
-# Bank app
-[![Build Status](https://travis-ci.org/amaalali/tic_tac_toe_ruby.svg?branch=master)](https://travis-ci.org/amaalali/tic_tac_toe_ruby)
+# Tic-Tac-Toe [![Build Status](https://travis-ci.org/amaalali/tic_tac_toe_ruby.svg?branch=master)](https://travis-ci.org/amaalali/tic_tac_toe_ruby)
 
 ## Specification
 
-- [ ] A player can claim a field if it is not already taken
+- [x] A player can claim a field if it is not already taken
 - [ ] There are two players in the game (X and O)
 - [ ] Players take turns until the game is over
 - [ ] A turn ends when a player claims a field

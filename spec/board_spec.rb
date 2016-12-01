@@ -48,6 +48,11 @@ describe Board do
         board.play('o',1,1)
         expect(board.view).to eq([['o', nil, nil], [nil, nil, nil], [nil, nil, nil]])
       end
+      it 'playing in s field that is already claimed' do
+        board.play('x',1,1)
+        expect {board.play('x',1,1)}.to raise_error(StandardError, 'That field is already claimed')
+        expect(board.view).to eq([['x', nil, nil], [nil, nil, nil], [nil, nil, nil]])
+      end
     end
   end
 end

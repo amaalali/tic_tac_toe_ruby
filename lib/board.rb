@@ -1,17 +1,18 @@
 class Board
   def initialize
-    @view = [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
+    @field = [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
     return self
   end
 
   def view
-    @view.dup
+    @field.dup
   end
 
   def play(symbol, row, column)
-    if check_inputs(symbol, row, column)
-      @view[row - 1][column - 1] = symbol
+    if check_inputs(symbol, row, column) && check_free(row, column)
+      @field[row - 1][column - 1] = symbol
     end
+    return self
   end
 
   private
@@ -35,4 +36,11 @@ class Board
     return true
   end
 
+  def check_free(row, column)
+    if @field[row - 1][column - 1] != nil
+      raise StandardError.new('That field is already claimed')
+      return false
+    end
+    return true
+  end
 end
