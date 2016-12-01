@@ -11,14 +11,22 @@ describe Gameplay do
     end
   end
 
-  it 'current player can be checked' do
-    expect(game.current_player).to eq("player_1")
-  end
-
   describe '#display' do
     it 'calls the Print class to print the board' do
       expect(Printer).to receive(:print)
       game.display
+    end
+  end
+
+  context 'Main gameplay' do
+    it 'current player can be checked' do
+      expect(game.current_player).to eq("player_1")
+    end
+
+    it 'current player is switched after each play' do
+      expect(game.current_player).to eq("player_1")
+      game.play(1,1)
+      expect(game.current_player).to eq("player_2")
     end
   end
 end

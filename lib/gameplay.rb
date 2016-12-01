@@ -6,7 +6,7 @@ class Gameplay
   end
 
   def player_1
-    @players[0].name
+    @players[0].name.dup
   end
 
   def player_2
@@ -19,5 +19,17 @@ class Gameplay
 
   def display
     Printer.print(@board)
+  end
+
+  def play(row,column)
+    @board.move(@current_player.symbol, row, column)
+    switch_players
+    return self
+  end
+
+  private
+
+  def switch_players
+    @current_player = @players.select { |player| player != @current_player }.first
   end
 end

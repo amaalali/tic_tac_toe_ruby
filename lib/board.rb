@@ -36,7 +36,7 @@ class Board
   end
 
   def check_free(row, column)
-    if @field[row - 1][column - 1] != nil
+    unless @field[row - 1][column - 1] == nil
       raise StandardError.new('That field is already claimed')
       return false
     end
