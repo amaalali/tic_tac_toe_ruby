@@ -3,7 +3,7 @@
 ## Specification
 
 - [x] A player can claim a field if it is not already taken
-- [ ] There are two players in the game (X and O)
+- [x] There are two players in the game (X and O)
 - [ ] Players take turns until the game is over
 - [ ] A turn ends when a player claims a field
 - [ ] A player wins if they claim all the fields in a row, column or diagonal
