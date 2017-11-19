@@ -1,20 +1,30 @@
-describe Player do
-  let(:name)    { "player" }
-  let(:player_1) { Player.new(name,"X") }
-  let(:player_2) { Player.new(name,"O") }
+require 'player'
 
+describe Player do
   describe 'initialization' do
-    it 'name is set' do
-      expect(player_1.name).to eq(name)
+    it 'valid symbol does not raise an error' do
+      expect{ Player.new('mock name',"X") }.not_to raise_error
+      expect{ Player.new('mock name',"O") }.not_to raise_error
     end
-    it 'symbol is set correctly to X' do
-      expect(player_1.symbol).to eq("X")
+
+    it 'invalid symbol raises an error' do
+      expect{ Player.new(double,'z') }.to raise_error(ArgumentError, 'User Symbol is invalid')
     end
-    it 'symbol is set correctly to O' do
-      expect(player_2.symbol).to eq("O")
+  end
+
+  describe '#name' do
+    it 'returns the name of the player' do
+      player = Player.new('test name', 'X')
+
+      expect(player.name).to eq('test name')
     end
-    it 'symbol must be X or O' do
-      expect{ Player.new(name,"z") }.to raise_error(ArgumentError, 'User Symbol is invalid')
+  end
+
+  describe '#symbol' do
+    it 'returns the name of the player' do
+      player = Player.new('mock name', 'X')
+
+      expect(player.symbol).to eq('X')
     end
   end
 end
