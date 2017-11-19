@@ -1,45 +1,55 @@
 class Board
+  SYMBOLS = ['X', 'O']
+  ROW_COLUMN_RANGE = (1..3).to_a
+
+  attr_reader :field
+
   def initialize
-    @field = [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
+    @field = [
+      [nil, nil, nil],
+      [nil, nil, nil],
+      [nil, nil, nil]
+    ]
+
     return self
   end
 
-  def field
-    (@field.each {|x| x.dup}).dup
-  end
+  def move(symbol:, row:, column:)
+    return unless check_inputs(symbol, row, column) && check_free(row, column)
 
-  def move(symbol, row, column)
-    if check_inputs(symbol, row, column) && check_free(row, column)
-      @field[row - 1][column - 1] = symbol
-    end
-    return self
+    @field[row - 1][column - 1] = symbol
+    return true
   end
 
   private
 
+  attr_reader :row_1, :row_2, :row_3
+
   def check_inputs(symbol, row, column)
-    if symbol == nil or !['X', 'O'].include?(symbol)
+    unless SYMBOLS.include?(symbol)
       raise ArgumentError.new("Symbol: You must enter an X or O")
-      return false
     end
 
-    if row == nil or ![1, 2, 3].include?(row)
+    unless ROW_COLUMN_RANGE.include?(row)
       raise ArgumentError.new("Row: You must enter a row in range 1-3")
-      return false
     end
 
-    if column == nil or ![1, 2, 3].include?(column)
+    unless ROW_COLUMN_RANGE.include?(column)
       raise ArgumentError.new("Column: You must enter a column in range 1-3")
-      return false
     end
+
     return true
   end
 
   def check_free(row, column)
-    unless @field[row - 1][column - 1] == nil
+    if position(row, column)
       raise StandardError.new('That field is already claimed')
-      return false
     end
+
     return true
+  end
+
+  def position(row, column)
+    @field[row - 1][column - 1] 
   end
 end
