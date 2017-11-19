@@ -1,6 +1,4 @@
-require 'board'
-require 'gameplay'
-require 'player'
+require 'pry'
 require 'printer'
 require 'game_status'
 
